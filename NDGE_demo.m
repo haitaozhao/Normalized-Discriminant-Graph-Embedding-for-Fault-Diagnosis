@@ -2,10 +2,10 @@ close;
 clear all;
 %happen=160;
  
-%% read in data including normal and fault data 
+%% read in data including normal and fault data
 d00=importdata('d00.dat');
 d00te = importdata('d00_te.dat');
-% 读入故障数据，训练数据和测试数据，训练数据为 d**.dat，测试数据是d**_te.dat，共21个故障
+% read in the training and testing data
 for i = 1 : 21
     str_i = num2str(i);
     if i < 10
@@ -27,8 +27,6 @@ for i = 1 : 21
     test_fault(:,:,i)=(temp_test_fault-ones(size(temp_test_fault,1),1)*mean)./(ones(size(temp_test_fault,1),1)*std);
 end
 
-
-
 %% Trainingset and Testingset
 
 
@@ -46,6 +44,8 @@ for i =  [1,2,6,7,8]
 end 
 Train = tempTrain;
 Test = tempTest;
+
+
 [Accuracy,ProjectionMatrix,VV] = slpp_te_ub( Train,Test,gnd_tr,gnd_test_other,5,30,'mindist',30, 30);
 plot(Accuracy,'ro-');
 legend('NDGE');
