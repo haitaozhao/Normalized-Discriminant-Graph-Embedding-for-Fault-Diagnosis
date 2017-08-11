@@ -1,4 +1,4 @@
-# Normalized-Discriminant-Graph-Embedding-for-Fault-Diagnosis
+# Normalized Discriminan Graph Embedding for Fault Diagnosis
 
 
 - Code for paper "Normalized Discriminant Graph Embedding for Fault Diagnosis"
